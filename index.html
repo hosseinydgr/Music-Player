@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Player</title>
+	</head>
+	<body>
+		<div class="main-container">
+			<img src="img1.jpg" alt="picture" class="poster img1" />
+			<audio class="audio1">
+				<source src="audio1.mp3" type="video/mp4" class="audio-source1" />
+				Your browser can't play the audio.
+			</audio>
+			<img src="img2.jpg" alt="picture" class="poster img2 hidden" />
+			<audio class="audio2">
+				<source src="audio2.mp3" type="video/mp4" class="audio-source2" />
+				Your browser can't play the audio.
+			</audio>
+			<img src="img3.jpg" alt="picture" class="poster img3 hidden" />
+			<audio class="audio3">
+				<source src="audio3.mp3" type="video/mp4" class="audio-source3" />
+				Your browser can't play the audio.
+			</audio>
+			<img src="img4.jpg" alt="picture" class="poster hidden img4" />
+			<audio class="audio4">
+				<source src="audio4.mp3" type="video/mp4" class="audio-source4" />
+				Your browser can't play the audio.
+			</audio>
+
+			<div class="control">
+				<div class="progress-container">
+					<p class="current">00:00</p>
+					<input
+						type="range"
+						name="progress"
+						id="progress"
+						min="0"
+						max="100"
+						value="0"
+					/>
+					<p class="total-time">00:00</p>
+				</div>
+
+				<div class="btn-sound">
+					<div class="buttons">
+						<button class="previous">
+							<img
+								src="previous-icon.png"
+								alt="previous"
+								class="previous-icon"
+							/>
+						</button>
+						<button class="play">
+							<img src="play-icon.png" alt="play" class="play-icon" />
+							<img src="pause-icon.png" alt="pause" class="pause-icon hidden" />
+						</button>
+						<button class="next">
+							<img src="next-icon.png" alt="next" class="next-icon" />
+						</button>
+					</div>
+
+					<div class="sound">
+						<img src="mute-icon.png" alt="mute" class="sound-icon" />
+						<input
+							type="range"
+							min="0"
+							max="100"
+							value="80"
+							class="volume-range"
+						/>
+						<img src="volume-icon.png" alt="volume" class="sound-icon" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
