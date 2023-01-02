@@ -39,8 +39,8 @@ body {
   width: 83%;
   cursor: pointer;
   -webkit-appearance: none;
-  height: 5px;
-  border-radius: 2px;
+  height: 8px;
+  border-radius: 4px;
   background: linear-gradient(to right, #c80000 0% 0%, #999 0% 100%);
 }
 

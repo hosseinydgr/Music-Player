@@ -95,38 +95,13 @@ previous.addEventListener("click", function () {
   }
 });
 
-volumeRange.addEventListener("mousemove", function () {
-  audio.volume = volumeRange.value / 100;
-  volumeRange.style.background = `linear-gradient(to right, #c80000 0% ${volumeRange.value}%, #999 ${volumeRange.value}% 100%)`;
-});
+volumeRange.addEventListener("mousemove", volumeRangeUserHandler);
+volumeRange.addEventListener("click", volumeRangeUserHandler);
+volumeRange.addEventListener("touchmove", volumeRangeUserHandler);
+volumeRange.addEventListener("touchend", volumeRangeUserHandler);
 
-progress.addEventListener("click", function () {
-  audio.currentTime = (progress.value * Math.floor(audio.duration)) / 100;
-});
-
-progress.addEventListener("mousemove", function () {
-  progress.style.background = `linear-gradient(to right, #c80000 0% ${progress.value}%, #999 ${progress.value}% 100%)`;
-});
-
-progress.addEventListener("touchmove", function () {
-  progress.style.background = `linear-gradient(to right, #c80000 0% ${progress.value}%, #999 ${progress.value}% 100%)`;
-});
-
-progress.addEventListener("touchmove", function () {
-  progress.style.background = `linear-gradient(to right, #c80000 0% ${progress.value}%, #999 ${progress.value}% 100%)`;
-});
-
-function edit(num) {
-  let minute = Math.floor(num / 60).toString();
-  let second = (num % 60).toString();
-  if (minute.length === 1) {
-    minute = "0" + minute;
-  }
-  if (second.length === 1) {
-    second = "0" + second;
-  }
-  return `${minute}:${second}`;
-}
+progress.addEventListener("mouseup", progressUserHandler);
+progress.addEventListener("touchend", progressUserHandler);
 
 window.addEventListener("resize", function () {
   if (
@@ -143,3 +118,25 @@ window.addEventListener("resize", function () {
     mainCont.style.margin = "50px auto";
   }
 });
+
+function volumeRangeUserHandler() {
+  audio.volume = volumeRange.value / 100;
+  volumeRange.style.background = `linear-gradient(to right, #c80000 0% ${volumeRange.value}%, #999 ${volumeRange.value}% 100%)`;
+}
+
+function progressUserHandler() {
+  audio.currentTime = (progress.value * Math.floor(audio.duration)) / 100;
+  progress.style.background = `linear-gradient(to right, #c80000 0% ${progress.value}%, #999 ${progress.value}% 100%)`;
+}
+
+function edit(num) {
+  let minute = Math.floor(num / 60).toString();
+  let second = (num % 60).toString();
+  if (minute.length === 1) {
+    minute = "0" + minute;
+  }
+  if (second.length === 1) {
+    second = "0" + second;
+  }
+  return `${minute}:${second}`;
+}
