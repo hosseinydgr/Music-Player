@@ -108,6 +108,14 @@ progress.addEventListener("mousemove", function () {
   progress.style.background = `linear-gradient(to right, #c80000 0% ${progress.value}%, #999 ${progress.value}% 100%)`;
 });
 
+progress.addEventListener("touchmove", function () {
+  progress.style.background = `linear-gradient(to right, #c80000 0% ${progress.value}%, #999 ${progress.value}% 100%)`;
+});
+
+progress.addEventListener("touchmove", function () {
+  progress.style.background = `linear-gradient(to right, #c80000 0% ${progress.value}%, #999 ${progress.value}% 100%)`;
+});
+
 function edit(num) {
   let minute = Math.floor(num / 60).toString();
   let second = (num % 60).toString();
