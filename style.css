@@ -118,6 +118,26 @@ p {
   background: white;
 }
 
+.repeat-btn {
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition-duration: 1s;
+}
+
+.repeating {
+  background-color: rgb(0, 93, 139);
+  font-size: 17px;
+  border: none;
+}
+
+.not-repeating {
+  background-color: #111;
+  font-size: 15px;
+  border-color: white;
+}
+
 @media (width <= 720px) {
   .main-container,
   .control {

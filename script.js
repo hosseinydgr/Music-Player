@@ -7,15 +7,17 @@ let audio = document.querySelector(".audio1");
 let playIcon = document.querySelector(".play-icon");
 let pauseIcon = document.querySelector(".pause-icon");
 let totalTime = document.querySelector(".total-time");
-let audioSource = document.querySelector(".audio-source");
+// let audioSource = document.querySelector(".audio-source");
 let next = document.querySelector(".next");
 let previous = document.querySelector(".previous");
 let volumeRange = document.querySelector(".volume-range");
 let mainCont = document.querySelector(".main-container");
+const repeatBtn = document.querySelector(".repeat-btn");
 
 let playIsClicked = false;
-let c = 0;
+let counter = 0;
 let currentAudio = 1;
+let isRepeating = false;
 // progress.value = 50;
 
 if (
@@ -33,7 +35,7 @@ if (
 }
 
 play.addEventListener("click", function () {
-  if (c === 0) {
+  if (counter === 0) {
     totalTime.textContent = edit(Math.floor(audio.duration));
     audio.volume = volumeRange.value / 100;
     setInterval(function () {
@@ -41,7 +43,12 @@ play.addEventListener("click", function () {
       progress.value =
         (Math.floor(audio.currentTime) / Math.floor(audio.duration)) * 100;
       progress.style.background = `linear-gradient(to right, #c80000 0% ${progress.value}%, #999 ${progress.value}% 100%)`;
-      if (audio.currentTime === audio.duration) next.click();
+      if (audio.currentTime === audio.duration && !isRepeating) {
+        next.click();
+      } else if (audio.currentTime === audio.duration && isRepeating) {
+        audio.currentTime = 0;
+        audio.play();
+      }
     }, 1000);
   }
   if (!playIsClicked) {
@@ -49,13 +56,13 @@ play.addEventListener("click", function () {
     playIcon.classList.add("hidden");
     pauseIcon.classList.remove("hidden");
     playIsClicked = true;
-    c++;
+    counter++;
   } else {
     audio.pause();
     playIcon.classList.remove("hidden");
     pauseIcon.classList.add("hidden");
     playIsClicked = false;
-    c++;
+    counter++;
   }
 });
 
@@ -102,6 +109,20 @@ volumeRange.addEventListener("touchend", volumeRangeUserHandler);
 
 progress.addEventListener("mouseup", progressUserHandler);
 progress.addEventListener("touchend", progressUserHandler);
+
+repeatBtn.addEventListener("click", function () {
+  if (!isRepeating) {
+    this.classList.add("repeating");
+    this.classList.remove("not-repeating");
+    isRepeating = true;
+    this.textContent = "Repeating this song";
+  } else {
+    this.classList.remove("repeating");
+    this.classList.add("not-repeating");
+    isRepeating = false;
+    this.textContent = "Repeat this song";
+  }
+});
 
 window.addEventListener("resize", function () {
   if (
