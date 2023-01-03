@@ -120,22 +120,23 @@ p {
 
 .repeat-btn {
   padding: 10px 20px;
-  color: white;
   border-radius: 10px;
   cursor: pointer;
   transition-duration: 1s;
 }
 
 .repeating {
-  background-color: rgb(0, 93, 139);
+  background-color: white;
   font-size: 17px;
-  border: none;
+  color: red;
+  font-weight: 400;
 }
 
 .not-repeating {
   background-color: #111;
   font-size: 15px;
   border-color: white;
+  color: white;
 }
 
 @media (width <= 720px) {
