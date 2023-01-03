@@ -18,10 +18,24 @@ body {
   gap: 20px;
 }
 
+.img-audio-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+}
+
 .poster {
   width: 350px;
   height: 300px;
   border-radius: 20px;
+}
+
+.info h3 {
+  color: rgb(220, 220, 220);
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .control {

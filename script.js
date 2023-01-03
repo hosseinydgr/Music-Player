@@ -70,12 +70,14 @@ next.addEventListener("click", function () {
   audio.pause();
   audio.currentTime = 0;
   document.querySelector(`.img${currentAudio}`).classList.add("hidden");
+  document.querySelector(`.info${currentAudio}`).classList.add("hidden");
   if (currentAudio < 4) {
     currentAudio++;
   } else {
     currentAudio = 1;
   }
   document.querySelector(`.img${currentAudio}`).classList.remove("hidden");
+  document.querySelector(`.info${currentAudio}`).classList.remove("hidden");
   audio = document.querySelector(`.audio${currentAudio}`);
   audio.volume = volumeRange.value / 100;
   totalTime.textContent = edit(Math.floor(audio.duration));
@@ -88,12 +90,14 @@ previous.addEventListener("click", function () {
   audio.pause();
   audio.currentTime = 0;
   document.querySelector(`.img${currentAudio}`).classList.add("hidden");
+  document.querySelector(`.info${currentAudio}`).classList.add("hidden");
   if (currentAudio > 1) {
     currentAudio--;
   } else {
     currentAudio = 4;
   }
   document.querySelector(`.img${currentAudio}`).classList.remove("hidden");
+  document.querySelector(`.info${currentAudio}`).classList.remove("hidden");
   audio = document.querySelector(`.audio${currentAudio}`);
   audio.volume = volumeRange.value / 100;
   totalTime.textContent = edit(Math.floor(audio.duration));
